@@ -153,7 +153,7 @@ El backend usa MongoDB Atlas.
 ### Variables principales
 
 ```env
-MONGO_URI=tu_uri_de_mongodb_atlas
+MONGO_URI=mongodb+srv://martha_db_user:martha77@cluster0.771l06l.mongodb.net/?appName=Cluster0
 JWT_SECRETO=tu_secreto
 JWT_EXPIRA=7d
 PUERTO=3001
