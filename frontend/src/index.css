@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply min-h-full bg-slate-50 text-slate-900 antialiased;
+  }
+
+  body {
+    @apply min-h-screen bg-slate-50;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    @apply outline-none;
+  }
+}
+
+@layer components {
+  .sombra-tarjeta {
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  }
+}
