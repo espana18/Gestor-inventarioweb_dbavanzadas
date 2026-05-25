@@ -46,7 +46,7 @@ interface CategoriaAEliminar {
 
 const formularioProductoInicial = (): FormularioProducto => ({
   nombre: '',
-  codigoProducto: '',
+  codigoProducto: generarCodigoProducto(),
   precio: '',
   stock: '',
   stockMinimo: '',
@@ -59,6 +59,17 @@ const formularioCategoriaInicial = (): FormularioCategoria => ({
 });
 
 const normalizarTexto = (valor: string): string => valor.trim().toUpperCase();
+
+//genero el codigo aleatroiamente 
+
+const generarCodigoProducto = (): string => {
+  const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const prefijo = letras[Math.floor(Math.random() * letras.length)] + letras[Math.floor(Math.random() * letras.length)];
+  const numeros = Math.floor(1000 + Math.random() * 9000);
+  return `${prefijo}-${numeros}`;
+};
+
+
 
 const parseMoneda = (valor: string): number | null => {
   const limpio = valor.replace(/\D/g, '');
@@ -93,6 +104,9 @@ export function Inventario(): JSX.Element {
   const [errorFormulario, setErrorFormulario] = useState<string | null>(null);
   const [guardando, setGuardando] = useState(false);
 
+  //agrego un estado para manejar la imagen prevista al subir una nueva imagen o editarla, esto me permite mostrar una vista previa antes de guardar el producto y también limpiar la vista previa al cerrar el modal.
+  const [previstaImagen, setPrevistaImagen] = useState<string>('');
+
   const cargar = async (): Promise<void> => {
     try {
       setError(null);
@@ -115,13 +129,14 @@ export function Inventario(): JSX.Element {
   useEffect(() => escucharVentaRegistrada(() => void cargar()), []);
 
   useEffect(() => {
-    if (!modalProductoAbierto) {
-      setFormulario(formularioProductoInicial());
-      setErrores({});
-      setErrorFormulario(null);
-      setProductoEnEdicion(null);
-    }
-  }, [modalProductoAbierto]);
+  if (!modalProductoAbierto) {
+    setFormulario(formularioProductoInicial());
+    setErrores({});
+    setErrorFormulario(null);
+    setProductoEnEdicion(null);
+    setPrevistaImagen('');
+  }
+}, [modalProductoAbierto]);
 
   useEffect(() => {
     if (!modalCategoriaAbierto) {
@@ -161,6 +176,8 @@ export function Inventario(): JSX.Element {
     setProductoEnEdicion(null);
     setFormulario(formularioProductoInicial());
     setErrores({});
+  
+    
     setModalProductoAbierto(true);
   };
 
@@ -430,11 +447,62 @@ export function Inventario(): JSX.Element {
             </div>
           </div>
 
-          <label className="block sm:col-span-2">
-            <span className="mb-2 block text-sm font-semibold text-slate-700">Imagen URL</span>
-            <input className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm shadow-sm focus:border-primario focus:ring-4 focus:ring-blue-100" value={formulario.imagenUrl} onChange={(evento) => setFormulario((anterior) => ({ ...anterior, imagenUrl: evento.target.value }))} placeholder="https://..." />
-            {errores.imagenUrl ? <p className="mt-2 text-xs font-medium text-red-600">{errores.imagenUrl}</p> : null}
-          </label>
+
+
+          <div className="sm:col-span-2">
+  <span className="mb-2 block text-sm font-semibold text-slate-700">Imagen del producto</span>
+  <label
+    className="flex flex-col items-center justify-center w-full rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 px-4 py-6 text-center cursor-pointer hover:border-primario hover:bg-blue-50 transition-colors"
+    onDragOver={(e) => e.preventDefault()}
+    onDrop={(e) => {
+      e.preventDefault();
+      const archivo = e.dataTransfer.files[0];
+      if (!archivo) return;
+      const lector = new FileReader();
+      lector.onload = () => {
+        const base64 = lector.result as string;
+        setPrevistaImagen(base64);
+        setFormulario((anterior) => ({ ...anterior, imagenUrl: base64 }));
+      };
+      lector.readAsDataURL(archivo);
+    }}
+  >
+    {(previstaImagen || formulario.imagenUrl) ? (
+      <img
+        src={previstaImagen || formulario.imagenUrl}
+        alt="Vista previa"
+        className="h-32 w-32 rounded-2xl object-cover border border-slate-200 mb-3"
+      />
+    ) : (
+      <div className="text-slate-400 mb-2">
+        <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-10 w-10 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <p className="text-sm font-medium">Arrastra una imagen aquí</p>
+        <p className="text-xs text-slate-400 mt-1">o haz clic para seleccionar</p>
+      </div>
+    )}
+    <input
+      type="file"
+      accept="image/*"
+      className="hidden"
+      onChange={(evento) => {
+        const archivo = evento.target.files?.[0];
+        if (!archivo) return;
+        const lector = new FileReader();
+        lector.onload = () => {
+          const base64 = lector.result as string;
+          setPrevistaImagen(base64);
+          setFormulario((anterior) => ({ ...anterior, imagenUrl: base64 }));
+        };
+        lector.readAsDataURL(archivo);
+      }}
+    />
+  </label>
+  {errores.imagenUrl ? <p className="mt-2 text-xs font-medium text-red-600">{errores.imagenUrl}</p> : null}
+</div>
+
+
 
           <label className="block">
             <span className="mb-2 block text-sm font-semibold text-slate-700">Precio</span>
