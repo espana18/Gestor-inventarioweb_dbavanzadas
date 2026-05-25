@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "69dc44551edd50a6cbf028a2"
+  },
+  "id": "17689deb-6d15-4559-8539-e99cf482f782",
+  "nombreTienda": "Martha",
+  "nombrePropietario": "Martha España",
+  "correo": "martha@gmail.com",
+  "contrasena": "$2b$12$nfIUi8EvQ4tztUMwsT6K6e1RhCulN8VNU8U0S4A0xA2PXHkA8a/sW",
+  "plan": "gratis",
+  "activa": true,
+  "configuracion": {
+    "moneda": "COP",
+    "zonaHoraria": "America/Bogota",
+    "stockMinimoGlobal": 5
+  },
+  "fechaRegistro": {
+    "$date": "2026-04-13T01:18:13.032Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  },
+  "id": "2e9227b7-3504-4e2b-9815-8630f3dec284",
+  "nombreTienda": "Tienda D1",
+  "nombrePropietario": "Martha",
+  "correo": "martha@tienda.com",
+  "contrasena": "$2b$12$iG8mmLgqQC3yszTeki4KvugnBU7UWSKFzLKPdf.azRtWeO86TNZxy",
+  "plan": "gratis",
+  "activa": true,
+  "configuracion": {
+    "moneda": "COP",
+    "zonaHoraria": "America/Bogota",
+    "stockMinimoGlobal": 5
+  },
+  "fechaRegistro": {
+    "$date": "2026-04-20T02:13:42.679Z"
+  }
+}]

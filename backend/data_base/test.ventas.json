@@ -1,0 +1,165 @@
+[{
+  "_id": {
+    "$oid": "69dc45221edd50a6cbf02919"
+  },
+  "id": "venta-d4846e4e-3e14-4e7f-b53a-b14b8f79f674",
+  "productos": [
+    {
+      "productoId": "prod-e38c244d-522c-403e-8ff0-029e6eddd81a",
+      "nombre": "ARROZ DIANA 500G",
+      "cantidad": 2,
+      "precioUnitario": 2500,
+      "subtotal": 5000
+    }
+  ],
+  "total": 5000,
+  "ganancia": 5000,
+  "metodoPago": "Efectivo",
+  "fecha": "2026-04-13T01:21:38.018Z",
+  "cajero": "CAJERO 1",
+  "usuarioId": {
+    "$oid": "69dc44ec1edd50a6cbf028f3"
+  },
+  "tiendaId": {
+    "$oid": "69dc44551edd50a6cbf028a2"
+  }
+},
+{
+  "_id": {
+    "$oid": "69e5a05fd1d5a822004f1dcd"
+  },
+  "id": "venta-f95ce61c-b8a7-4d66-9b38-3a1985ff39b4",
+  "productos": [
+    {
+      "productoId": "prod-9c7070a4-0fce-4a94-a270-f1597807ec1f",
+      "nombre": "LECHE ALPINA 1000ML",
+      "cantidad": 2,
+      "precioUnitario": 5000,
+      "subtotal": 10000
+    }
+  ],
+  "total": 10000,
+  "ganancia": 10000,
+  "metodoPago": "Efectivo",
+  "fecha": "2026-04-13T12:00:00.000Z",
+  "cajero": "Cajero 1",
+  "usuarioId": {
+    "$oid": "69e58bd7d1d5a822004f1d99"
+  },
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a01d64bf7c12660aeed12c0"
+  },
+  "id": "venta-7d854060-2176-485b-b70e-c4b873f76d10",
+  "productos": [
+    {
+      "productoId": "prod-233c8d31-9213-47c5-9550-69998ba9a1de",
+      "nombre": "Arroz Diana 1 kg",
+      "cantidad": 1,
+      "precioUnitario": 5200,
+      "subtotal": 5200
+    },
+    {
+      "productoId": "prod-9c7070a4-0fce-4a94-a270-f1597807ec1f",
+      "nombre": "LECHE ALPINA 1000ML",
+      "cantidad": 1,
+      "precioUnitario": 5000,
+      "subtotal": 5000
+    }
+  ],
+  "total": 10200,
+  "ganancia": 10200,
+  "metodoPago": "Efectivo",
+  "fecha": "2026-05-11T13:14:51.110Z",
+  "cajero": "Cajero 1",
+  "usuarioId": {
+    "$oid": "69e59bebd1d5a822004f1db6"
+  },
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a01da46f7c12660aeed13ed"
+  },
+  "id": "venta-8cffd7c7-54ae-4604-910f-3183547fa8d4",
+  "productos": [
+    {
+      "productoId": "prod-15aee1f5-5aa5-45c7-b531-8431f32dc25e",
+      "nombre": "LENTEJAS DIANA 500G",
+      "cantidad": 1,
+      "precioUnitario": 3500,
+      "subtotal": 3500
+    },
+    {
+      "productoId": "prod-41d970dd-4c82-4b01-b89c-0c61f5edfcad",
+      "nombre": "MANZANA ROJA",
+      "cantidad": 2,
+      "precioUnitario": 1000,
+      "subtotal": 2000
+    },
+    {
+      "productoId": "prod-c2485339-69af-4e79-95ee-d2b9ec9a9d6b",
+      "nombre": "LECHUGA",
+      "cantidad": 1,
+      "precioUnitario": 2000,
+      "subtotal": 2000
+    }
+  ],
+  "total": 7500,
+  "ganancia": 7500,
+  "metodoPago": "Transferencia",
+  "fecha": "2026-05-11T13:31:49.514Z",
+  "cajero": "Cajero 1",
+  "usuarioId": {
+    "$oid": "69e59bebd1d5a822004f1db6"
+  },
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a144beca06d36beeb15276d"
+  },
+  "id": "venta-caa773b4-224a-4079-81c4-39cd54a56376",
+  "productos": [
+    {
+      "productoId": "prod-25ba3d5a-2d53-4f89-a273-854d6f068018",
+      "nombre": "HARINA HAZ DE ORO 500 G",
+      "cantidad": 1,
+      "precioUnitario": 3000,
+      "subtotal": 3000
+    },
+    {
+      "productoId": "prod-9c7070a4-0fce-4a94-a270-f1597807ec1f",
+      "nombre": "LECHE ALPINA 1000ML",
+      "cantidad": 1,
+      "precioUnitario": 5000,
+      "subtotal": 5000
+    },
+    {
+      "productoId": "prod-6bc00cf4-6cb3-4ad3-ae75-a231b17ded87",
+      "nombre": "PANAL DE HUEVOS X30 UND",
+      "cantidad": 1,
+      "precioUnitario": 16000,
+      "subtotal": 16000
+    }
+  ],
+  "total": 24000,
+  "ganancia": 24000,
+  "metodoPago": "Efectivo",
+  "fecha": "2026-05-25T13:17:31.401Z",
+  "cajero": "Cajero 1",
+  "usuarioId": {
+    "$oid": "69e59bebd1d5a822004f1db6"
+  },
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  }
+}]

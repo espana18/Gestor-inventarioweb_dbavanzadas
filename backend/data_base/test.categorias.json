@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "69dcf37a94a88721e0457dc7"
+  },
+  "nombre": "ACEITE"
+},
+{
+  "_id": {
+    "$oid": "69e58cd9b640a1b5f819839f"
+  },
+  "nombre": "GRANOS",
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  },
+  "fechaCreacion": {
+    "$date": "2026-04-20T02:18:01.816Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69e599f5d1d5a822004f1daa"
+  },
+  "nombre": "CEREALES",
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  },
+  "fechaCreacion": {
+    "$date": "2026-04-20T03:13:57.845Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69e6aecba7334c92d47816bd"
+  },
+  "nombre": "LACTEOS",
+  "tiendaId": {
+    "$oid": "69dc44551edd50a6cbf028a2"
+  },
+  "fechaCreacion": {
+    "$date": "2026-04-20T22:55:07.282Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a01d6cef7c12660aeed1336"
+  },
+  "nombre": "FRUTAS",
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  },
+  "fechaCreacion": {
+    "$date": "2026-05-11T13:17:02.847Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a01d95ff7c12660aeed13a7"
+  },
+  "nombre": "VERDURAS",
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  },
+  "fechaCreacion": {
+    "$date": "2026-05-11T13:27:59.455Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a1210faabd2deb28ecffe8d"
+  },
+  "nombre": "PROTEINA",
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  },
+  "fechaCreacion": {
+    "$date": "2026-05-23T20:41:30.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6a121134f657206e85cb3d24"
+  },
+  "nombre": "LACTEOS",
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  },
+  "fechaCreacion": {
+    "$date": "2026-05-23T20:42:28.810Z"
+  }
+}]

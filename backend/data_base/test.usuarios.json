@@ -1,0 +1,68 @@
+[{
+  "_id": {
+    "$oid": "69dc44561edd50a6cbf028a4"
+  },
+  "id": "dea02ec2-d75c-4afb-b56f-736c754ef2a0",
+  "nombre": "Martha España",
+  "rol": "admin",
+  "correo": "martha@gmail.com",
+  "contrasena": "$2b$12$Ldd/DUg7kZdVsVimAeb59Ou.Aw2SYszdQ6wGL91VreWLtL2TD1Dbm",
+  "activo": true,
+  "fechaRegistro": {
+    "$date": "2026-04-13T01:18:14.023Z"
+  },
+  "tiendaId": {
+    "$oid": "69dc44551edd50a6cbf028a2"
+  }
+},
+{
+  "_id": {
+    "$oid": "69dc44ec1edd50a6cbf028f3"
+  },
+  "id": "9fcd9782-9a3b-41ea-a509-dc741f541ddb",
+  "nombre": "CAJERO 1",
+  "rol": "cajero",
+  "correo": "cajero1@gmail.com",
+  "contrasena": "$2b$12$ySxC40UKWHYRpgqdeL958uztBgMlS8vFzlcPCeSh4zNCN0lmSHXyy",
+  "activo": true,
+  "fechaRegistro": {
+    "$date": "2026-04-13T01:20:44.060Z"
+  },
+  "tiendaId": {
+    "$oid": "69dc44551edd50a6cbf028a2"
+  }
+},
+{
+  "_id": {
+    "$oid": "69e58bd7d1d5a822004f1d99"
+  },
+  "id": "1b3fac50-4602-406d-a570-ebaa2f542394",
+  "nombre": "Martha",
+  "rol": "admin",
+  "correo": "martha@tienda.com",
+  "contrasena": "$2b$12$sglai8.aVlLzliTw5/VNLOJ0ijtzMKRcV19lvoKa6WaZszeWrsBBm",
+  "activo": true,
+  "fechaRegistro": {
+    "$date": "2026-04-20T02:13:43.712Z"
+  },
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  }
+},
+{
+  "_id": {
+    "$oid": "69e59bebd1d5a822004f1db6"
+  },
+  "id": "bb6eedf7-63d0-4d9c-b390-f88dd0d685ca",
+  "nombre": "Cajero 1",
+  "rol": "cajero",
+  "correo": "cajero1@tienda.com",
+  "contrasena": "$2b$12$LeJbR3gxq.yWAn9eyOJsVuWJuYk55YPw2TloSIroccZA20lSOvm4C",
+  "activo": true,
+  "fechaRegistro": {
+    "$date": "2026-04-20T03:22:19.855Z"
+  },
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  }
+}]

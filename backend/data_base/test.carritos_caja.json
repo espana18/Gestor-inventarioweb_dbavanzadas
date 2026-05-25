@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "69dc4522b640a1b5f817e156"
+  },
+  "usuarioId": {
+    "$oid": "69dc44ec1edd50a6cbf028f3"
+  },
+  "tiendaId": {
+    "$oid": "69dc44551edd50a6cbf028a2"
+  },
+  "fechaActualizacion": {
+    "$date": "2026-04-13T13:26:59.868Z"
+  },
+  "productos": []
+},
+{
+  "_id": {
+    "$oid": "6a144becf657206e85cb4686"
+  },
+  "tiendaId": {
+    "$oid": "69e58bd6d1d5a822004f1d97"
+  },
+  "usuarioId": {
+    "$oid": "69e59bebd1d5a822004f1db6"
+  },
+  "fechaActualizacion": {
+    "$date": "2026-05-25T13:17:32.675Z"
+  },
+  "productos": []
+}]
