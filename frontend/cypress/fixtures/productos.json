@@ -1,0 +1,13 @@
+{
+  "precioCero": {
+    "nombre": "Producto límite",
+    "categoria": "Granos",
+    "precio": "0",
+    "stock": "10",
+    "stockMinimo": "5",
+    "imagen": "cypress/fixtures/limite.png"
+  },
+  "mensajes": {
+    "precioInvalido": "El precio del producto debe ser mayor que cero"
+  }
+}
