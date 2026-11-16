@@ -1,30 +1,30 @@
-# Gestor Inventario
+﻿# Gestor Inventario
 
-Sistema POS y de inventario para tiendas pequeñas, medianas y grandes.
+Sistema POS y de inventario para tiendas pequeÃ±as, medianas y grandes.
 
-## Propósito
+## PropÃ³sito
 
 Resolver el control operativo de una tienda en un solo sistema:
 
-- inventario con stock mínimo por producto
+- inventario con stock mÃ­nimo por producto
 - caja con flujo de venta para cajeros
-- historial y reportes para administración
-- categorías CRUD
+- historial y reportes para administraciÃ³n
+- categorÃ­as CRUD
 - control de cajeros por tienda
-- analítica en tiempo real
+- analÃ­tica en tiempo real
 
-Está pensado para tiendas que necesitan vender, registrar stock, ver alertas y tomar decisiones sin depender de hojas de cálculo o procesos manuales.
+EstÃ¡ pensado para tiendas que necesitan vender, registrar stock, ver alertas y tomar decisiones sin depender de hojas de cÃ¡lculo o procesos manuales.
 
-## Stack Tecnológico
+## Stack TecnolÃ³gico
 
 ### Frontend
 
 - `React 18.3.1`: interfaz de usuario
 - `TypeScript 5.7.3`: tipado estricto
 - `Vite 5.4.12`: desarrollo y build
-- `React Router DOM 6.30.1`: rutas y navegación
+- `React Router DOM 6.30.1`: rutas y navegaciÃ³n
 - `Axios 1.8.0`: consumo de API
-- `Recharts 2.15.3`: gráficas y analítica
+- `Recharts 2.15.3`: grÃ¡ficas y analÃ­tica
 - `Tailwind CSS 3.4.17`: estilos
 
 ### Backend
@@ -32,8 +32,8 @@ Está pensado para tiendas que necesitan vender, registrar stock, ver alertas y 
 - `Node.js` + `Express 5.2.1`: API HTTP
 - `TypeScript 5.7.3`: tipado estricto
 - `MongoDB Atlas` + `Mongoose 8.9.5`: persistencia
-- `bcryptjs 3.0.3`: hashes de contraseñas
-- `jsonwebtoken 9.0.3`: autenticación por token
+- `bcryptjs 3.0.3`: hashes de contraseÃ±as
+- `jsonwebtoken 9.0.3`: autenticaciÃ³n por token
 - `cors 2.8.5`: acceso del frontend
 - `dotenv 16.4.7`: variables de entorno
 - `morgan 1.10.0`: logs de peticiones
@@ -41,11 +41,11 @@ Está pensado para tiendas que necesitan vender, registrar stock, ver alertas y 
 ### Herramientas de desarrollo
 
 - `ts-node-dev 2.0.0`: backend en modo desarrollo
-- `npm`: instalación y ejecución
+- `npm`: instalaciÃ³n y ejecuciÃ³n
 
-## Qué se hizo
+## QuÃ© se hizo
 
-### Evolución por fases
+### EvoluciÃ³n por fases
 
 #### Fase 1
 
@@ -57,57 +57,57 @@ Está pensado para tiendas que necesitan vender, registrar stock, ver alertas y 
 
 #### Fase 2
 
-- conexión real con MongoDB Atlas
-- migración desde persistencia temporal a API real
+- conexiÃ³n real con MongoDB Atlas
+- migraciÃ³n desde persistencia temporal a API real
 - servicios HTTP centralizados con Axios
-- analítica básica en dashboard
-- ventas con validación real de stock
+- analÃ­tica bÃ¡sica en dashboard
+- ventas con validaciÃ³n real de stock
 
 #### Fase 3
 
 - login y registro mejorados
-- separación de roles admin/cajero
+- separaciÃ³n de roles admin/cajero
 - caja persistente en backend
 - historial de ventas
 - reportes avanzados
-- categorías dedicadas
-- cajeros con gestión administrativa
+- categorÃ­as dedicadas
+- cajeros con gestiÃ³n administrativa
 
 #### Fase actual, MVP consolidado
 
 - inventario con `stockMinimo` por producto
-- categorías CRUD
+- categorÃ­as CRUD
 - caja exclusiva para cajeros
 - historial filtrable por cajero
-- reportes con filtros por período y cajero
+- reportes con filtros por perÃ­odo y cajero
 - ventas y stock actualizados en tiempo real
 - modal profesional de cierre de venta
-- impresión de factura con cambio
+- impresiÃ³n de factura con cambio
 - mejor UX general
 
 ## Arquitectura
 
 ### Frontend
 
-El frontend consume la API real y mantiene la lógica de negocio separada por servicios.
+El frontend consume la API real y mantiene la lÃ³gica de negocio separada por servicios.
 
 - `componentes/`: piezas reutilizables de UI
 - `paginas/`: pantallas principales
 - `servicios/`: llamadas HTTP y utilidades
-- `contexto/`: sesión y autenticación
+- `contexto/`: sesiÃ³n y autenticaciÃ³n
 - `tipos/`: modelos TypeScript compartidos
 
 ### Backend
 
-El backend está organizado por dominio.
+El backend estÃ¡ organizado por dominio.
 
 - `modelos/`: esquemas de MongoDB y tipos
-- `controladores/`: lógica de negocio
+- `controladores/`: lÃ³gica de negocio
 - `rutas/`: endpoints HTTP
-- `middleware/`: autenticación y roles
+- `middleware/`: autenticaciÃ³n y roles
 - `utilidades/`: helpers de respuestas
 
-## Cómo funciona la API
+## CÃ³mo funciona la API
 
 La API sigue el formato:
 
@@ -117,9 +117,9 @@ La API sigue el formato:
 
 ### Flujo general
 
-1. La ruta recibe la petición.
+1. La ruta recibe la peticiÃ³n.
 2. El middleware valida token y rol.
-3. El controlador ejecuta la lógica.
+3. El controlador ejecuta la lÃ³gica.
 4. El modelo accede a MongoDB.
 5. Se responde con `{ mensaje, datos }`.
 
@@ -130,11 +130,11 @@ La API sigue el formato:
 - `GET /api/ventas/historial`
 - `GET /api/analitica/reporte`
 
-## Cómo se conectan controladores, modelos y rutas
+## CÃ³mo se conectan controladores, modelos y rutas
 
 - `rutas`: exponen los endpoints.
 - `controladores`: reciben `req`, validan, consultan y responden.
-- `modelos`: definen cómo se guardan los datos en MongoDB.
+- `modelos`: definen cÃ³mo se guardan los datos en MongoDB.
 
 Ejemplo:
 
@@ -142,7 +142,7 @@ Ejemplo:
 - el controlador usa `modelos/producto.modelo.ts`
 - la respuesta vuelve al frontend con Axios
 
-## Conexión con la base de datos
+## ConexiÃ³n con la base de datos
 
 El backend usa MongoDB Atlas.
 
@@ -153,7 +153,7 @@ El backend usa MongoDB Atlas.
 ### Variables principales
 
 ```env
-MONGO_URI=mongodb+srv://martha_db_user:martha77@cluster0.771l06l.mongodb.net/?appName=Cluster0
+MONGO_URI=mongodb+srv://<usuario>:<contraseña>@<cluster>.mongodb.net/?appName=Cluster0
 JWT_SECRETO=tu_secreto
 JWT_EXPIRA=7d
 PUERTO=3001
@@ -162,7 +162,7 @@ PUERTO=3001
 ### Arranque
 
 1. `src/servidor.ts` carga variables con `dotenv`.
-2. `mongoose.connect(MONGO_URI)` abre conexión.
+2. `mongoose.connect(MONGO_URI)` abre conexiÃ³n.
 3. Se registran las rutas en `/api`.
 4. El servidor escucha en el puerto configurado.
 
@@ -170,26 +170,26 @@ PUERTO=3001
 
 ```text
 Gestor_Inventario/
-├─ frontend/
-│  └─ src/
-│     ├─ componentes/     UI reutilizable
-│     ├─ contexto/        sesión y auth
-│     ├─ datos/           datos de ejemplo
-│     ├─ paginas/         pantallas
-│     ├─ servicios/       llamadas a API
-│     └─ tipos/           tipos TS compartidos
-├─ backend/
-│  └─ src/
-│     ├─ controladores/   lógica de negocio
-│     ├─ middleware/      auth y permisos
-│     ├─ modelos/         esquemas MongoDB
-│     ├─ rutas/           endpoints REST
-│     ├─ scripts/         semillas y utilidades
-│     └─ utilidades/      helpers de respuesta
-└─ README.md
+â”œâ”€ frontend/
+â”‚  â””â”€ src/
+â”‚     â”œâ”€ componentes/     UI reutilizable
+â”‚     â”œâ”€ contexto/        sesiÃ³n y auth
+â”‚     â”œâ”€ datos/           datos de ejemplo
+â”‚     â”œâ”€ paginas/         pantallas
+â”‚     â”œâ”€ servicios/       llamadas a API
+â”‚     â””â”€ tipos/           tipos TS compartidos
+â”œâ”€ backend/
+â”‚  â””â”€ src/
+â”‚     â”œâ”€ controladores/   lÃ³gica de negocio
+â”‚     â”œâ”€ middleware/      auth y permisos
+â”‚     â”œâ”€ modelos/         esquemas MongoDB
+â”‚     â”œâ”€ rutas/           endpoints REST
+â”‚     â”œâ”€ scripts/         semillas y utilidades
+â”‚     â””â”€ utilidades/      helpers de respuesta
+â””â”€ README.md
 ```
 
-## Instalación
+## InstalaciÃ³n
 
 ### 1. Clonar o abrir el proyecto
 
@@ -237,7 +237,7 @@ cd frontend
 npm run dev
 ```
 
-## Comandos útiles
+## Comandos Ãºtiles
 
 ### Frontend
 
@@ -263,12 +263,12 @@ npm run poblar
 - login y registro por tienda
 - roles `admin` y `cajero`
 - caja exclusiva para cajero
-- inventario con stock mínimo por producto
-- categorías CRUD
-- ventas con descuento automático de stock
+- inventario con stock mÃ­nimo por producto
+- categorÃ­as CRUD
+- ventas con descuento automÃ¡tico de stock
 - historial de ventas por fecha y cajero
-- reportes con filtros y analítica
-- gestión de cajeros
+- reportes con filtros y analÃ­tica
+- gestiÃ³n de cajeros
 - persistencia real del carrito de caja
 
 ## Roles
@@ -276,37 +276,37 @@ npm run poblar
 ### Admin
 
 - ve dashboard, inventario, historial, reportes y cajeros
-- gestiona productos, categorías y cajeros
-- consulta ventas y analítica global de la tienda
+- gestiona productos, categorÃ­as y cajeros
+- consulta ventas y analÃ­tica global de la tienda
 
 ### Cajero
 
 - solo accede a Caja
 - registra ventas con stock real
-- ve cambio, factura e impresión
+- ve cambio, factura e impresiÃ³n
 - su actividad queda asociada a su usuario y tienda
 
 ## Endpoints principales
 
-| Método | Ruta | Uso |
+| MÃ©todo | Ruta | Uso |
 | --- | --- | --- |
 | `POST` | `/api/auth/registro` | Registrar tienda y admin |
-| `POST` | `/api/auth/login` | Iniciar sesión |
+| `POST` | `/api/auth/login` | Iniciar sesiÃ³n |
 | `GET` | `/api/productos` | Listar productos |
 | `POST` | `/api/productos` | Crear producto |
 | `PUT` | `/api/productos/:id` | Editar producto |
 | `DELETE` | `/api/productos/:id` | Eliminar producto |
-| `GET` | `/api/categorias` | Listar categorías |
-| `POST` | `/api/categorias` | Crear categoría |
-| `PUT` | `/api/categorias/:id` | Editar categoría |
-| `DELETE` | `/api/categorias/:id` | Eliminar categoría |
+| `GET` | `/api/categorias` | Listar categorÃ­as |
+| `POST` | `/api/categorias` | Crear categorÃ­a |
+| `PUT` | `/api/categorias/:id` | Editar categorÃ­a |
+| `DELETE` | `/api/categorias/:id` | Eliminar categorÃ­a |
 | `GET` | `/api/carrito` | Obtener carrito del cajero |
 | `POST` | `/api/carrito` | Guardar carrito del cajero |
 | `DELETE` | `/api/carrito` | Limpiar carrito del cajero |
 | `GET` | `/api/ventas` | Listar ventas |
 | `POST` | `/api/ventas` | Registrar venta |
 | `GET` | `/api/ventas/historial` | Historial con filtros |
-| `GET` | `/api/analitica/resumen` | Resumen del día |
+| `GET` | `/api/analitica/resumen` | Resumen del dÃ­a |
 | `GET` | `/api/analitica/semanal` | Ventas semanales |
 | `GET` | `/api/analitica/reporte` | Reporte general |
 | `GET` | `/api/analitica/productos-mas-vendidos` | Ranking de productos |
@@ -315,7 +315,7 @@ npm run poblar
 | `PATCH` | `/api/usuarios/:id/estado` | Activar o desactivar cajero |
 | `DELETE` | `/api/usuarios/:id` | Eliminar cajero |
 
-## Guía para Postman
+## GuÃ­a para Postman
 
 Base URL:
 
@@ -339,7 +339,7 @@ Body JSON:
 }
 ```
 
-### 2. Iniciar sesión
+### 2. Iniciar sesiÃ³n
 
 `POST /auth/login`
 
@@ -363,7 +363,7 @@ Usa el token en Postman como `Bearer Token` o en header:
 Authorization: Bearer TU_TOKEN
 ```
 
-### 3. Ver perfil de sesión
+### 3. Ver perfil de sesiÃ³n
 
 `GET /auth/perfil`
 
@@ -416,7 +416,7 @@ Body JSON:
 }
 ```
 
-### 6. Crear categoría
+### 6. Crear categorÃ­a
 
 `POST /categorias`
 
@@ -428,7 +428,7 @@ Body JSON:
 }
 ```
 
-### 7. Editar categoría
+### 7. Editar categorÃ­a
 
 `PUT /categorias/:id`
 
@@ -484,7 +484,7 @@ Body JSON:
 
 `GET /ventas/historial?desde=2026-04-13&hasta=2026-04-13&metodoPago=Efectivo`
 
-### 12. Ver analítica
+### 12. Ver analÃ­tica
 
 `GET /analitica/resumen`
 
@@ -525,10 +525,10 @@ Body JSON:
 ## Recomendaciones para probar en Postman
 
 1. Primero registra la tienda.
-2. Luego inicia sesión y copia el token.
+2. Luego inicia sesiÃ³n y copia el token.
 3. Agrega el token en Authorization para todas las rutas protegidas.
-4. Crea categorías antes de crear productos.
-5. Crea productos con códigos únicos por tienda.
+4. Crea categorÃ­as antes de crear productos.
+5. Crea productos con cÃ³digos Ãºnicos por tienda.
 6. Registra una venta para comprobar stock, historial y reportes.
 
 
@@ -554,30 +554,30 @@ flowchart TD
 2. El carrito se guarda en backend por usuario y tienda.
 3. Al finalizar, el sistema valida stock y forma de pago.
 4. Se registra la venta en MongoDB.
-5. El stock se descuenta en la misma transacción.
+5. El stock se descuenta en la misma transacciÃ³n.
 6. El dashboard, historial y reportes se actualizan.
 7. La factura muestra total, efectivo recibido y cambio.
 
-## Flujo de categorías
+## Flujo de categorÃ­as
 
-1. El admin crea una categoría desde Inventario.
+1. El admin crea una categorÃ­a desde Inventario.
 2. Puede editarla o eliminarla desde la lista.
-3. Las categorías se guardan por tienda.
-4. Los productos usan categorías normalizadas en mayúscula.
+3. Las categorÃ­as se guardan por tienda.
+4. Los productos usan categorÃ­as normalizadas en mayÃºscula.
 
 ## Notas del MVP
 
-Este proyecto llegó a un MVP funcional para operación real en tienda pequeña o mediana, con capacidad de escalar a tiendas más grandes por separación de dominios, multiusuario por tienda e integración con MongoDB Atlas.
+Este proyecto llegÃ³ a un MVP funcional para operaciÃ³n real en tienda pequeÃ±a o mediana, con capacidad de escalar a tiendas mÃ¡s grandes por separaciÃ³n de dominios, multiusuario por tienda e integraciÃ³n con MongoDB Atlas.
 
 El foco principal fue evitar procesos manuales, mejorar control de ventas, disminuir errores de caja y dar visibilidad al stock y al movimiento de dinero en tiempo real.
 
-## Verificación rápida
+## VerificaciÃ³n rÃ¡pida
 
 1. Inicia backend y frontend.
-2. Abre sesión como admin o cajero.
+2. Abre sesiÃ³n como admin o cajero.
 3. Registra una venta desde Caja.
 4. Verifica que el stock baje.
-5. Revisa `Inicio`, `Historial` y `Reportes` para ver la actualización.
+5. Revisa `Inicio`, `Historial` y `Reportes` para ver la actualizaciÃ³n.
 
 
 ## Pruebas automatizadas con Cypress
@@ -587,11 +587,11 @@ Suite E2E (interfaz y API) del Gestor Inventario Web. Cada spec lleva en el nomb
 ### Requisitos
 
 - Node.js 22 o superior
-- Frontend en `http://localhost:5173` y backend en `http://localhost:3001` en ejecución
-- Una tienda de prueba con: un administrador, un cajero y el producto «Arroz 500 g» (código `ARR-500`, con stock)
+- Frontend en `http://localhost:5173` y backend en `http://localhost:3001` en ejecuciÃ³n
+- Una tienda de prueba con: un administrador, un cajero y el producto Â«Arroz 500 gÂ» (cÃ³digo `ARR-500`, con stock)
 - No ejecutar `npm run poblar` (borra productos y ventas de toda la base de datos)
 
-### Instalación
+### InstalaciÃ³n
 
 ```bash
 cd frontend
@@ -606,9 +606,9 @@ Copie la plantilla y complete con los datos de la tienda de prueba:
 cp cypress.env.example.json cypress.env.json
 ```
 
-`cypress.env.json` está en `.gitignore`. También pueden usarse variables de entorno `CYPRESS_adminCorreo`, `CYPRESS_adminContrasena`, `CYPRESS_cajeroCorreo` y `CYPRESS_cajeroContrasena`.
+`cypress.env.json` estÃ¡ en `.gitignore`. TambiÃ©n pueden usarse variables de entorno `CYPRESS_adminCorreo`, `CYPRESS_adminContrasena`, `CYPRESS_cajeroCorreo` y `CYPRESS_cajeroContrasena`.
 
-### Ejecución
+### EjecuciÃ³n
 
 ```bash
 npx cypress run                                  # toda la suite
@@ -616,21 +616,22 @@ npx cypress run --spec "cypress/e2e/cp-seg-*"    # solo los casos de seguridad
 npx cypress open                                 # modo interactivo
 ```
 
-La URL de la aplicación (`baseUrl`) y de la API (`env.apiUrl`) se definen en `cypress.config.js`.
+La URL de la aplicaciÃ³n (`baseUrl`) y de la API (`env.apiUrl`) se definen en `cypress.config.js`.
 
 ### Estructura
 
 ```
 frontend/
-├── cypress.config.js          # baseUrl, API y opciones
-├── cypress.env.example.json   # plantilla de credenciales (sin datos reales)
-└── cypress/
-    ├── e2e/                   # specs *.cy.js, uno por caso de prueba
-    ├── fixtures/              # datos de prueba
-    └── support/               # comandos: loginAdmin, loginCajero, apiLogin
+â”œâ”€â”€ cypress.config.js          # baseUrl, API y opciones
+â”œâ”€â”€ cypress.env.example.json   # plantilla de credenciales (sin datos reales)
+â””â”€â”€ cypress/
+    â”œâ”€â”€ e2e/                   # specs *.cy.js, uno por caso de prueba
+    â”œâ”€â”€ fixtures/              # datos de prueba
+    â””â”€â”€ support/               # comandos: loginAdmin, loginCajero, apiLogin
 ```
 
 ### Resultados esperados
 
-Algunos specs **fallan a propósito**: verifican el resultado esperado del caso y el fallo evidencia un defecto real de la aplicación (ver reporte de defectos del informe).
+Algunos specs **fallan a propÃ³sito**: verifican el resultado esperado del caso y el fallo evidencia un defecto real de la aplicaciÃ³n (ver reporte de defectos del informe).
+
 
