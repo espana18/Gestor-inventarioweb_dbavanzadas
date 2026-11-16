@@ -23,7 +23,7 @@ describe('CP-INV-001 - Crear producto con datos válidos', () => {
   })
 
   it('guarda el producto y aparece en el inventario', () => {
-    cy.visit('http://localhost:5173/inventario')
+    cy.visit('/inventario')
     cy.contains('button', 'Agregar producto').click()
 
     cy.contains('label', /^Nombre$/).find('input').type(producto.nombre)

@@ -1,52 +1,42 @@
 /// <reference types="cypress" />
-// ***********************************************
-// This example commands.ts shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-//
-// declare global {
-//   namespace Cypress {
-//     interface Chainable {
-//       login(email: string, password: string): Chainable<void>
-//       drag(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       dismiss(subject: string, options?: Partial<TypeOptions>): Chainable<Element>
-//       visit(originalFn: CommandOriginalFn, url: string, options: Partial<VisitOptions>): Chainable<Element>
-//     }
-//   }
-// }
+
+// Las credenciales se leen de cypress.env.json (excluido de Git) o de
+// variables de entorno CYPRESS_*. Ver cypress.env.example.json.
+
 Cypress.Commands.add('loginAdmin', () => {
-  cy.visit('http://localhost:5173/login')
-  cy.get('input[type="email"]').type('admin@tiendaprueba.com')
-  cy.get('input[type="password"]').type('Clave1234*')
+  cy.visit('/login')
+  cy.get('input[type="email"]').type(Cypress.env('adminCorreo'))
+  cy.get('input[type="password"]').type(Cypress.env('adminContrasena'), { log: false })
   cy.contains('button', 'Entrar al sistema').click()
   cy.url().should('include', '/dashboard')
 })
 
 Cypress.Commands.add('loginCajero', () => {
-  cy.visit('http://localhost:5173/login')
-  cy.get('input[type="email"]').type('martha@tiendaprueba.com')
-  cy.get('input[type="password"]').type('Cajero123*')
+  cy.visit('/login')
+  cy.get('input[type="email"]').type(Cypress.env('cajeroCorreo'))
+  cy.get('input[type="password"]').type(Cypress.env('cajeroContrasena'), { log: false })
   cy.contains('button', 'Entrar al sistema').click()
   cy.url().should('include', '/caja')
 })
+
+// Inicia sesión por API y devuelve el token JWT. rol: 'admin' | 'cajero'
+Cypress.Commands.add('apiLogin', (rol: 'admin' | 'cajero') => {
+  return cy
+    .request('POST', `${Cypress.env('apiUrl')}/auth/login`, {
+      correo: Cypress.env(`${rol}Correo`),
+      contrasena: Cypress.env(`${rol}Contrasena`)
+    })
+    .then((resp) => resp.body.datos.token as string)
+})
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      loginAdmin(): Chainable<void>
+      loginCajero(): Chainable<void>
+      apiLogin(rol: 'admin' | 'cajero'): Chainable<string>
+    }
+  }
+}
+
+export {}

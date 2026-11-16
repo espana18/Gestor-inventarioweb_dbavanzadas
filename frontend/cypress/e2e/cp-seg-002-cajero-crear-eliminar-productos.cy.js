@@ -1,4 +1,4 @@
-const API = 'http://localhost:3001/api'
+const API = Cypress.env('apiUrl')
 
 describe('CP-SEG-002 - Cajero intenta crear o eliminar productos', () => {
   const id = Date.now()
@@ -20,14 +20,14 @@ describe('CP-SEG-002 - Cajero intenta crear o eliminar productos', () => {
   before(() => {
     // Token del administrador y del cajero
     cy.request('POST', `${API}/auth/login`, {
-      correo: 'admin@tiendaprueba.com',
-      contrasena: 'Clave1234*'
+      correo: Cypress.env('adminCorreo'),
+      contrasena: Cypress.env('adminContrasena')
     }).then((resp) => {
       tokenAdmin = resp.body.datos.token
     })
     cy.request('POST', `${API}/auth/login`, {
-      correo: 'martha@tiendaprueba.com',
-      contrasena: 'Cajero123*'
+      correo: Cypress.env('cajeroCorreo'),
+      contrasena: Cypress.env('cajeroContrasena')
     }).then((resp) => {
       tokenCajero = resp.body.datos.token
     })

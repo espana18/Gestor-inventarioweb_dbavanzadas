@@ -14,7 +14,7 @@ describe('CP-INV-003 - Crear producto con código duplicado', () => {
   })
 
   it('no guarda el producto y avisa que el código ya existe', () => {
-    cy.visit('http://localhost:5173/inventario')
+    cy.visit('/inventario')
 
     // Precondición: ya existe un producto con código ARR-500
     cy.contains('ARR-500').should('be.visible')

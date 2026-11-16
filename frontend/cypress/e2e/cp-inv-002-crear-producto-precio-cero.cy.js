@@ -15,7 +15,7 @@ describe('CP-INV-002 - Crear producto con precio 0', () => {
   it('no guarda el producto y muestra el mensaje de precio', () => {
     const p = datos.precioCero
 
-    cy.visit('http://localhost:5173/inventario')
+    cy.visit('/inventario')
     cy.contains('button', 'Agregar producto').click()
 
     cy.contains('label', /^Nombre$/).find('input').type(p.nombre)
