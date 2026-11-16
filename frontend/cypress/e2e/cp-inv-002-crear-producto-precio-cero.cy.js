@@ -27,7 +27,7 @@ describe('CP-INV-002 - Crear producto con precio 0', () => {
 
     cy.contains('button', 'Guardar producto').scrollIntoView().click()
 
-    // Resultado esperado del caso (texto exacto, tomado del fixture)
+    // Resultado esperado del caso 
     cy.contains(datos.mensajes.precioInvalido).should('be.visible')
     // Y el producto no se guardó: el formulario sigue abierto
     cy.contains('button', 'Guardar producto').should('be.visible')

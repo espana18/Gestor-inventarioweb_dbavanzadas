@@ -10,3 +10,4 @@ describe('CP-AUT-006 - Iniciar sesión con contraseña incorrecta', () => {
     cy.url().should('include', '/login')
   })
 })
+

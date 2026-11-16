@@ -578,3 +578,59 @@ El foco principal fue evitar procesos manuales, mejorar control de ventas, dismi
 3. Registra una venta desde Caja.
 4. Verifica que el stock baje.
 5. Revisa `Inicio`, `Historial` y `Reportes` para ver la actualización.
+
+
+## Pruebas automatizadas con Cypress
+
+Suite E2E (interfaz y API) del Gestor Inventario Web. Cada spec lleva en el nombre el ID del caso de prueba del documento de casos (por ejemplo `cp-caj-001-...`).
+
+### Requisitos
+
+- Node.js 22 o superior
+- Frontend en `http://localhost:5173` y backend en `http://localhost:3001` en ejecución
+- Una tienda de prueba con: un administrador, un cajero y el producto «Arroz 500 g» (código `ARR-500`, con stock)
+- No ejecutar `npm run poblar` (borra productos y ventas de toda la base de datos)
+
+### Instalación
+
+```bash
+cd frontend
+npm install
+```
+
+### Credenciales (no se suben a Git)
+
+Copie la plantilla y complete con los datos de la tienda de prueba:
+
+```bash
+cp cypress.env.example.json cypress.env.json
+```
+
+`cypress.env.json` está en `.gitignore`. También pueden usarse variables de entorno `CYPRESS_adminCorreo`, `CYPRESS_adminContrasena`, `CYPRESS_cajeroCorreo` y `CYPRESS_cajeroContrasena`.
+
+### Ejecución
+
+```bash
+npx cypress run                                  # toda la suite
+npx cypress run --spec "cypress/e2e/cp-seg-*"    # solo los casos de seguridad
+npx cypress open                                 # modo interactivo
+```
+
+La URL de la aplicación (`baseUrl`) y de la API (`env.apiUrl`) se definen en `cypress.config.js`.
+
+### Estructura
+
+```
+frontend/
+├── cypress.config.js          # baseUrl, API y opciones
+├── cypress.env.example.json   # plantilla de credenciales (sin datos reales)
+└── cypress/
+    ├── e2e/                   # specs *.cy.js, uno por caso de prueba
+    ├── fixtures/              # datos de prueba
+    └── support/               # comandos: loginAdmin, loginCajero, apiLogin
+```
+
+### Resultados esperados
+
+Algunos specs **fallan a propósito**: verifican el resultado esperado del caso y el fallo evidencia un defecto real de la aplicación (ver reporte de defectos del informe).
+
